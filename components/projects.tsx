@@ -20,6 +20,17 @@ const projects = [
     }
   },
   {
+  title: 'Viksit Bharat Youth Impact Platform',
+  description:
+    'A digital initiative designed to empower youth participation in India’s development agenda. The platform enables young citizens to track national development goals, participate in local problem-solving, and collaborate with authorities. Features include contribution tracking, AI-assisted idea evaluation, district-level progress dashboards, and a community-driven feedback system. Helps amplify youth voices, accelerates grassroots innovation, and aligns citizen efforts with Viksit Bharat 2047 vision.',
+  tags: ['Next.js', 'Node.js', 'Fastify', 'Vercel', 'Fastify', 'mongodb', "Mongoose"],
+  links: {
+    github: 'https://github.com/onkardongare/great_india',
+    live: 'https://great-india-w7wr-jb8dih6nq-onkardongares-projects.vercel.app/'
+  }
+}
+
+  {
     title: 'Smart Garden',
     description: 'A smart garden management application to track, organize, and monitor plant growth efficiently. Built with a scalable Fastify backend for data synchronization and API communication. Integrated an AI model to provide intelligent plant care recommendations including watering schedules and disease detection. Offline-first React Native frontend with Redux and SQLite.',
     tags: ['React Native', 'Redux', 'Expo', 'SQLite', 'Fastify', 'AI Model'],
