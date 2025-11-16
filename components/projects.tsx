@@ -26,7 +26,7 @@ const projects = [
     tags: ['Next.js', 'Node.js', 'Fastify', 'Vercel', 'Fastify', 'mongodb', "Mongoose"],
     links: {
       github: 'https://github.com/onkardongare/great_india',
-      live: 'https://great-india-w7wr-jb8dih6nq-onkardongares-projects.vercel.app/'
+      live: 'https://great-india-w7wr.vercel.app/en'
     }
   },
   {
