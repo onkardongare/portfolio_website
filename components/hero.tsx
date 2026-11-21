@@ -25,13 +25,13 @@ export function Hero() {
           <h1 className="text-5xl sm:text-7xl font-bold tracking-tight text-balance">
             Onkar Dongare
           </h1>
-          <p className="text-xl sm:text-2xl text-muted-foreground">
-            Full Stack Developer, App Developer & AI Integrator
+          <p className="text-xl sm:text-2xl text-muted-foreground font-medium">
+            Junior AI/ML Engineer
           </p>
         </div>
 
         <p className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-          I build real-world, impactful technology solutions. Specializing in mobile development, backend systems, AI integration, and mapping technologies with a focus on scalability and clean architecture.
+          Skilled in Python, PyTorch, Scikit-learn, FastAPI, and Generative AI workflows with LangChain & LangGraph. Experienced in building API-driven web and mobile systems with practical machine learning and recommendation logic.
         </p>
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-4">

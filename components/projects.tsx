@@ -1,54 +1,56 @@
 import { ExternalLink, GithubIcon } from 'lucide-react'
 
-const projects = [
+interface Project {
+  title: string
+  description: string
+  tags: string[]
+  links: {
+    github?: string
+    live?: string
+    liveLabel?: string
+  }
+}
+
+const projects: Project[] = [
   {
-    title: 'Cow Management System',
+    title: 'Smart Climate Decision – AI Decision Intelligence Platform',
     description:
-      'A mobile application to streamline livestock record management for dairy farmers. Features include add, update, and monitor cow health and productivity data stored locally using SQLite. Integrated Redux for centralized state management and i18next for multilingual support. Resulted in a 40% reduction in manual record errors and improved operational visibility across herds.',
+      'Built an AI-powered decision intelligence platform for multi-hazard urban climate adaptation that unifies environmental data streams into a continuous decision loop, enabling municipal planners to optimize resilience strategies across flood protection, groundwater recharge, and urban heat mitigation. Implemented Nugen AI reasoning, Pareto-frontier optimization, and PostGIS spatial integration; demonstrated 30% budget savings while improving multi-objective resilience outcomes in a Pune/PCMC case study.',
+    tags: ['Python', 'FastAPI', 'PyTorch', 'Nugen AI', 'PostGIS', 'Pareto Optimization', 'PostgreSQL'],
+    links: {
+      github: 'https://github.com/onkardongare/Smart_Climate_Engine',
+    },
+  },
+  {
+    title: 'My Cow – Livestock Management Mobile App',
+    description:
+      'Developed a mobile app for dairy farmers to maintain livestock records and monitor cow health and productivity, with local storage and multilingual support. Reached 600+ downloads; project reports a 40% reduction in manual errors across herd tracking operations.',
     tags: ['React Native', 'Expo', 'Redux', 'SQLite', 'i18next'],
     links: {
       github: 'https://github.com/onkardongare/my_cow',
-      live: 'https://expo.dev/artifacts/eas/q2JvuZ4wVgU3Ha8JX9qo6Y.apk',
+      live: 'https://play.google.com/store/apps/details?id=com.onkar2.mycow',
+      liveLabel: 'Google Play',
     },
   },
   {
-    title: 'Infrastructure Coordination & Mapping System',
+    title: 'Mahira Studio – Fashion Design Mobile Application',
     description:
-      'A unified platform to streamline communication between citizens, contractors, and city authorities in infrastructure development. Features real-time map visualization using MapLibre, geospatial data storage, and a mobile interface for field updates. Improved transparency, reduced work duplication, and enhanced decision-making across development activities.',
-    tags: ['Next.js', 'Fastify', 'MongoDB', 'MapLibre', 'React Native'],
+      'Built a full-stack mobile app with a React Native/Expo frontend and a Fastify/TypeScript/MongoDB backend; implemented JWT and Google OAuth authentication and RESTful APIs. Used Redux for centralized state management and Realm as the local database; configured Docker deployment and delivered cross-platform iOS/Android support with offline capability.',
+    tags: ['React Native', 'Expo', 'Fastify', 'TypeScript', 'MongoDB', 'Realm', 'Docker', 'OAuth / JWT'],
     links: {
-      github: 'https://github.com/onkardongare/underground_infra',
-      live: 'https://github.com/onkardongare/underground_infra',
+      github: 'https://github.com/onkardongare',
+      live: 'https://play.google.com/store/apps/details?id=com.anonymous.myfashionapp',
+      liveLabel: 'Google Play',
     },
-  },
-  {
-    title: 'Viksit Bharat Youth Impact Platform',
-    description:
-      'A digital initiative designed to empower youth participation in India’s development agenda. The platform enables young citizens to track national development goals, participate in local problem-solving, and collaborate with authorities. Features include contribution tracking, AI-assisted idea evaluation, district-level progress dashboards, and a community-driven feedback system. Helps amplify youth voices, accelerates grassroots innovation, and aligns citizen efforts with Viksit Bharat 2047 vision.',
-    tags: ['Next.js', 'Node.js', 'Fastify', 'Vercel', 'MongoDB', 'Mongoose'],
-    links: {
-      github: 'https://github.com/onkardongare/great_india',
-      live: 'https://great-india-w7wr.vercel.app/en',
-    },
-  },
-  {
-    title: 'Smart Garden',
-    description:
-      'A smart garden management application to track, organize, and monitor plant growth efficiently. Built with a scalable Fastify backend for data synchronization and API communication. Integrated an AI model to provide intelligent plant care recommendations including watering schedules and disease detection. Offline-first React Native frontend with Redux and SQLite.',
-    tags: ['React Native', 'Redux', 'Expo', 'SQLite', 'Fastify', 'AI Model'],
-    links: {
-      github: 'https://github.com/onkardongare/Smart-Garden',
-      live: 'https://github.com/onkardongare/Smart-Garden',
-    },
-  },
+  }
 ]
 
 export function Projects() {
   return (
-    <section id="projects" className="relative z-10 py-20 px-4 bg-[#06080d]">
-      <div className="max-w-4xl mx-auto space-y-12">
-        <div className="space-y-4">
-          <h2 className="text-4xl font-bold tracking-tight">Featured Projects</h2>
+    <section id="projects" className="relative z-10 py-8 sm:py-10 px-4 bg-[#06080d]">
+      <div className="max-w-4xl mx-auto space-y-6 sm:space-y-8">
+        <div className="space-y-3">
+          <h2 className="text-3xl sm:text-4xl font-bold tracking-tight">Projects</h2>
           <div className="w-12 h-1 bg-primary rounded-full"></div>
         </div>
 
@@ -64,24 +66,28 @@ export function Projects() {
                   {project.title}
                 </h3>
                 <div className="flex items-center gap-3 shrink-0">
-                  <a
-                    href={project.links.github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1.5 text-sm text-foreground/90 hover:text-white transition-all px-3 py-1.5 rounded-lg border border-border/80 bg-neutral-900/80 hover:border-primary"
-                  >
-                    <GithubIcon size={16} />
-                    Code
-                  </a>
-                  <a
-                    href={project.links.live}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1.5 text-sm text-primary-foreground bg-primary hover:opacity-90 transition-opacity px-3.5 py-1.5 rounded-lg font-medium shadow-sm shadow-primary/30"
-                  >
-                    <ExternalLink size={16} />
-                    Live Demo
-                  </a>
+                  {project.links.github && (
+                    <a
+                      href={project.links.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1.5 text-sm text-foreground/90 hover:text-white transition-all px-3 py-1.5 rounded-lg border border-border/80 bg-neutral-900/80 hover:border-primary"
+                    >
+                      <GithubIcon size={16} />
+                      Code
+                    </a>
+                  )}
+                  {project.links.live && (
+                    <a
+                      href={project.links.live}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1.5 text-sm text-primary-foreground bg-primary hover:opacity-90 transition-opacity px-3.5 py-1.5 rounded-lg font-medium shadow-sm shadow-primary/30"
+                    >
+                      <ExternalLink size={16} />
+                      {project.links.liveLabel || 'Live Demo'}
+                    </a>
+                  )}
                 </div>
               </div>
 

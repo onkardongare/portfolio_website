@@ -2,8 +2,8 @@ import { Github, Linkedin, Mail, Twitter } from 'lucide-react'
 
 export function Footer() {
   return (
-    <footer id="contact" className="relative z-10 border-t border-border py-12 px-4 bg-[#06080d]">
-      <div className="max-w-4xl mx-auto space-y-8">
+    <footer id="contact" className="relative z-10 border-t border-border py-8 sm:py-10 px-4 bg-[#06080d]">
+      <div className="max-w-4xl mx-auto space-y-6">
         <div className="space-y-4">
           <h2 className="text-2xl font-bold">Let's Work Together</h2>
           <p className="text-muted-foreground max-w-2xl">

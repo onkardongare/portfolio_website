@@ -16,6 +16,8 @@ export function Header() {
         {/* Desktop Navigation */}
         <div className="hidden md:flex gap-8">
           <a href="#about" className="text-muted-foreground hover:text-foreground transition">About</a>
+          <a href="#skills" className="text-muted-foreground hover:text-foreground transition">Skills</a>
+          <a href="#experience" className="text-muted-foreground hover:text-foreground transition">Experience</a>
           <a href="#projects" className="text-muted-foreground hover:text-foreground transition">Projects</a>
           <a href="#contact" className="text-muted-foreground hover:text-foreground transition">Contact</a>
         </div>
@@ -31,9 +33,11 @@ export function Header() {
         {/* Mobile Navigation */}
         {isMenuOpen && (
           <div className="absolute top-16 left-0 right-0 bg-background border-b border-border flex flex-col gap-4 p-4 md:hidden">
-            <a href="#about" className="text-muted-foreground hover:text-foreground transition">About</a>
-            <a href="#projects" className="text-muted-foreground hover:text-foreground transition">Projects</a>
-            <a href="#contact" className="text-muted-foreground hover:text-foreground transition">Contact</a>
+            <a href="#about" onClick={() => setIsMenuOpen(false)} className="text-muted-foreground hover:text-foreground transition">About</a>
+            <a href="#skills" onClick={() => setIsMenuOpen(false)} className="text-muted-foreground hover:text-foreground transition">Skills</a>
+            <a href="#experience" onClick={() => setIsMenuOpen(false)} className="text-muted-foreground hover:text-foreground transition">Experience</a>
+            <a href="#projects" onClick={() => setIsMenuOpen(false)} className="text-muted-foreground hover:text-foreground transition">Projects</a>
+            <a href="#contact" onClick={() => setIsMenuOpen(false)} className="text-muted-foreground hover:text-foreground transition">Contact</a>
           </div>
         )}
       </nav>

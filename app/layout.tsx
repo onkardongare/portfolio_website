@@ -7,8 +7,8 @@ const _geist = Geist({ subsets: ["latin"] });
 const _geistMono = Geist_Mono({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: 'Onkar Dongare | AI Integrator',
-  description: 'Full-stack developer specializing in AI integration and modern web applications',
+  title: 'Onkar Dongare | Junior AI/ML Engineer',
+  description: 'Junior AI/ML Engineer skilled in Python, PyTorch, Machine Learning, FastAPI, and Generative AI workflows',
   generator: 'v0.app',
   icons: {
     icon: [
