@@ -2,8 +2,8 @@ import { Github, Linkedin, Mail, Twitter } from 'lucide-react'
 
 export function Footer() {
   return (
-    <footer id="contact" className="border-t border-border py-12 px-4 bg-muted/30">
-      <div className="max-w-6xl mx-auto space-y-8">
+    <footer id="contact" className="relative z-10 border-t border-border py-12 px-4 bg-[#06080d]">
+      <div className="max-w-4xl mx-auto space-y-8">
         <div className="space-y-4">
           <h2 className="text-2xl font-bold">Let's Work Together</h2>
           <p className="text-muted-foreground max-w-2xl">
@@ -29,21 +29,39 @@ export function Footer() {
         </div>
 
         <div className="flex gap-4 py-4">
-          <a href="https://github.com/onkardongare" className="text-muted-foreground hover:text-foreground transition p-2">
-            <Github size={24} />
-            <span className="sr-only">GitHub</span>
+          <a
+            href="https://github.com/onkardongare"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center justify-center p-2.5 rounded-xl border border-white/10 bg-neutral-900/80 text-white hover:text-primary hover:border-primary hover:scale-110 transition-all shadow-sm"
+            aria-label="GitHub"
+          >
+            <Github size={20} className="stroke-[2.2]" />
           </a>
-          <a href="https://linkedin.com/in/onkardongare" className="text-muted-foreground hover:text-foreground transition p-2">
-            <Linkedin size={24} />
-            <span className="sr-only">LinkedIn</span>
+          <a
+            href="https://linkedin.com/in/onkardongare"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center justify-center p-2.5 rounded-xl border border-white/10 bg-neutral-900/80 text-white hover:text-primary hover:border-primary hover:scale-110 transition-all shadow-sm"
+            aria-label="LinkedIn"
+          >
+            <Linkedin size={20} className="stroke-[2.2]" />
           </a>
-          <a href="mailto:dongareonkar2@gmail.com" className="text-muted-foreground hover:text-foreground transition p-2">
-            <Mail size={24} />
-            <span className="sr-only">Email</span>
+          <a
+            href="mailto:dongareonkar2@gmail.com"
+            className="flex items-center justify-center p-2.5 rounded-xl border border-white/10 bg-neutral-900/80 text-white hover:text-primary hover:border-primary hover:scale-110 transition-all shadow-sm"
+            aria-label="Email"
+          >
+            <Mail size={20} className="stroke-[2.2]" />
           </a>
-          <a href="https://x.com/dongareonkar_2" className="text-muted-foreground hover:text-foreground transition p-2">
-            <Twitter size={24} />
-            <span className="sr-only">Email</span>
+          <a
+            href="https://x.com/dongareonkar_2"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center justify-center p-2.5 rounded-xl border border-white/10 bg-neutral-900/80 text-white hover:text-primary hover:border-primary hover:scale-110 transition-all shadow-sm"
+            aria-label="Twitter"
+          >
+            <Twitter size={20} className="stroke-[2.2]" />
           </a>
         </div>
 

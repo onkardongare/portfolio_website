@@ -1,6 +1,6 @@
 export function About() {
   return (
-    <section id="about" className="py-20 px-4 bg-muted/30">
+    <section id="about" className="relative z-10 py-20 px-4 bg-[#06080d]">
       <div className="max-w-4xl mx-auto space-y-12">
         <div className="space-y-4">
           <h2 className="text-4xl font-bold tracking-tight">About Me</h2>
@@ -18,12 +18,13 @@ export function About() {
           </p>
         </div>
 
-        <div className="grid sm:grid-cols-2 gap-8 pt-8">
+        {/* Vertically stacked Tech Stack & Specializations */}
+        <div className="space-y-8 pt-4">
           <div className="space-y-4">
             <h3 className="text-xl font-semibold">Tech Stack</h3>
             <div className="flex flex-wrap gap-2">
-              {['React', 'React Native', 'expo', 'Next.js', 'Javascript', 'Fastify', 'MongoDB', 'Python', 'AI/ML', 'LangChain', 'Scikit Learn'].map((tech) => (
-                <span key={tech} className="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm font-medium">
+              {['React', 'React Native', 'Expo', 'Next.js', 'JavaScript', 'Fastify', 'MongoDB', 'Python', 'AI/ML', 'LangChain', 'Scikit Learn'].map((tech) => (
+                <span key={tech} className="px-3.5 py-1.5 bg-primary/10 border border-primary/20 text-primary rounded-full text-sm font-medium">
                   {tech}
                 </span>
               ))}
@@ -34,7 +35,7 @@ export function About() {
             <h3 className="text-xl font-semibold">Specializations</h3>
             <div className="flex flex-wrap gap-2">
               {['Web Development', 'App Development', 'AI Integration', 'API Development', 'Deployment', 'Optimization'].map((skill) => (
-                <span key={skill} className="px-3 py-1 bg-accent/10 text-accent rounded-full text-sm font-medium">
+                <span key={skill} className="px-3.5 py-1.5 bg-accent/10 border border-accent/20 text-accent rounded-full text-sm font-medium">
                   {skill}
                 </span>
               ))}
