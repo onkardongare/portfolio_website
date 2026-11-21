@@ -39,8 +39,16 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en">
-      <body className={`font-sans antialiased bg-[#06080d] text-foreground`}>
+    <html lang="en" className="dark" suppressHydrationWarning>
+      <head>
+        {/* Always open in dark mode irrespective of browser or OS setting */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(){try{document.documentElement.classList.add('dark');}catch(e){}})()`,
+          }}
+        />
+      </head>
+      <body className="font-sans antialiased bg-background text-foreground transition-colors duration-200">
         {children}
         <Analytics />
       </body>

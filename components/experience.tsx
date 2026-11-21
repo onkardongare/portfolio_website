@@ -16,10 +16,10 @@ export function Experience() {
   ]
 
   return (
-    <section id="experience" className="relative z-10 py-8 sm:py-10 px-4 bg-[#06080d]">
+    <section id="experience" className="relative z-10 py-8 sm:py-10 px-4 bg-background transition-colors">
       <div className="max-w-4xl mx-auto space-y-6 sm:space-y-8">
         <div className="space-y-3">
-          <h2 className="text-3xl sm:text-4xl font-bold tracking-tight">Professional Experience</h2>
+          <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-foreground">Professional Experience</h2>
           <div className="w-12 h-1 bg-primary rounded-full"></div>
         </div>
 
@@ -27,7 +27,7 @@ export function Experience() {
           {experiences.map((exp, index) => (
             <div
               key={index}
-              className="border border-border/80 rounded-xl p-6 sm:p-8 space-y-5 bg-muted/20 hover:border-primary/60 transition-all shadow-sm"
+              className="border border-border/80 rounded-xl p-6 sm:p-8 space-y-5 bg-card dark:bg-muted/20 hover:border-primary/60 transition-all shadow-sm"
             >
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
                 <div className="space-y-1">
@@ -39,7 +39,7 @@ export function Experience() {
                     {exp.company}
                   </p>
                 </div>
-                <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-neutral-900 border border-neutral-800 text-neutral-300 w-fit">
+                <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-muted border border-border text-foreground w-fit">
                   <Calendar size={13} className="text-primary" />
                   {exp.duration}
                 </div>
@@ -48,17 +48,17 @@ export function Experience() {
               <ul className="space-y-2.5 text-muted-foreground leading-relaxed text-base">
                 {exp.points.map((point, i) => (
                   <li key={i} className="flex items-start gap-2.5">
-                    <span className="text-primary select-none mt-1.5 text-xs">◆</span>
+                    <span className="w-1.5 h-1.5 rounded-full bg-primary mt-2 shrink-0" />
                     <span>{point}</span>
                   </li>
                 ))}
               </ul>
 
-              <div className="flex flex-wrap gap-2 pt-2 border-t border-border/50">
+              <div className="flex flex-wrap gap-2 pt-2 border-t border-border/40">
                 {exp.technologies.map((tech) => (
                   <span
                     key={tech}
-                    className="text-xs px-2.5 py-1 bg-primary/10 border border-primary/20 text-primary rounded-full font-medium"
+                    className="text-xs px-2.5 py-1 bg-primary/10 border border-primary/20 text-primary rounded-md font-medium"
                   >
                     {tech}
                   </span>

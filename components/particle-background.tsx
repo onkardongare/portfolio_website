@@ -32,7 +32,6 @@ export function ParticleBackground() {
       radius: 190,
     }
 
-    // High density for prominent constellation effect in hero
     const particleCount = Math.min(
       Math.max(Math.floor((width * height) / 11000), 45),
       90
@@ -46,26 +45,21 @@ export function ParticleBackground() {
         y: Math.random() * height,
         vx: (Math.random() - 0.5) * 0.75,
         vy: (Math.random() - 0.5) * 0.75,
-        radius: Math.random() * 1.8 + 2.2, // 2.2px to 4px
+        radius: Math.random() * 1.8 + 2.2,
       })
     }
 
     const handleResize = () => {
       if (!canvas || !container) return
-      width = canvas.width = container.clientWidth || window.innerWidth
-      height = canvas.height = container.clientHeight || window.innerHeight
+      width = canvas.width = container.offsetWidth || window.innerWidth
+      height = canvas.height = container.offsetHeight || window.innerHeight
     }
 
-    handleResize()
-
-    const ro = new ResizeObserver(() => {
-      handleResize()
-    })
+    const ro = new ResizeObserver(() => handleResize())
     ro.observe(container)
 
     const handleMouseMove = (e: MouseEvent) => {
-      if (!canvas) return
-      const rect = canvas.getBoundingClientRect()
+      const rect = container.getBoundingClientRect()
       mouse.x = e.clientX - rect.left
       mouse.y = e.clientY - rect.top
     }
@@ -76,13 +70,22 @@ export function ParticleBackground() {
     }
 
     window.addEventListener('resize', handleResize)
-    window.addEventListener('mousemove', handleMouseMove, { passive: true })
+    window.addEventListener('mousemove', handleMouseMove)
     window.addEventListener('mouseleave', handleMouseLeave)
 
     const MAX_DISTANCE = 155
 
     const render = () => {
       ctx.clearRect(0, 0, width, height)
+
+      const isDark = document.documentElement.classList.contains('dark')
+
+      const lineRgb = isDark ? '110, 160, 255' : '37, 99, 235'
+      const cursorLineRgb = isDark ? '125, 175, 255' : '59, 130, 246'
+      const cursorColor = isDark ? '#8ab4ff' : '#2563eb'
+      const cursorShadow = isDark ? 'rgba(120, 175, 255, 0.95)' : 'rgba(37, 99, 235, 0.6)'
+      const dotColor = isDark ? 'rgba(115, 165, 255, 0.92)' : 'rgba(37, 99, 235, 0.85)'
+      const dotShadow = isDark ? 'rgba(100, 155, 255, 0.6)' : 'rgba(37, 99, 235, 0.35)'
 
       // 1. Draw connecting lines between particles
       for (let i = 0; i < particles.length; i++) {
@@ -92,11 +95,11 @@ export function ParticleBackground() {
           const dist = Math.sqrt(dx * dx + dy * dy)
 
           if (dist < MAX_DISTANCE) {
-            const alpha = (1 - dist / MAX_DISTANCE) * 0.55
+            const alpha = (1 - dist / MAX_DISTANCE) * (isDark ? 0.55 : 0.35)
             ctx.beginPath()
             ctx.moveTo(particles[i].x, particles[i].y)
             ctx.lineTo(particles[j].x, particles[j].y)
-            ctx.strokeStyle = `rgba(110, 160, 255, ${alpha})`
+            ctx.strokeStyle = `rgba(${lineRgb}, ${alpha})`
             ctx.lineWidth = 1
             ctx.stroke()
           }
@@ -111,11 +114,11 @@ export function ParticleBackground() {
           const dist = Math.sqrt(dx * dx + dy * dy)
 
           if (dist < mouse.radius) {
-            const alpha = (1 - dist / mouse.radius) * 0.8
+            const alpha = (1 - dist / mouse.radius) * (isDark ? 0.8 : 0.6)
             ctx.beginPath()
             ctx.moveTo(mouse.x, mouse.y)
             ctx.lineTo(particles[i].x, particles[i].y)
-            ctx.strokeStyle = `rgba(125, 175, 255, ${alpha})`
+            ctx.strokeStyle = `rgba(${cursorLineRgb}, ${alpha})`
             ctx.lineWidth = 1.3
             ctx.stroke()
           }
@@ -123,11 +126,11 @@ export function ParticleBackground() {
 
         // Draw cursor node
         ctx.save()
-        ctx.shadowColor = 'rgba(120, 175, 255, 0.95)'
+        ctx.shadowColor = cursorShadow
         ctx.shadowBlur = 12
         ctx.beginPath()
         ctx.arc(mouse.x, mouse.y, 4.5, 0, Math.PI * 2)
-        ctx.fillStyle = '#8ab4ff'
+        ctx.fillStyle = cursorColor
         ctx.fill()
         ctx.restore()
       }
@@ -170,11 +173,11 @@ export function ParticleBackground() {
 
         // Draw dot with subtle glow
         ctx.save()
-        ctx.shadowColor = 'rgba(100, 155, 255, 0.6)'
+        ctx.shadowColor = dotShadow
         ctx.shadowBlur = 6
         ctx.beginPath()
         ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2)
-        ctx.fillStyle = 'rgba(115, 165, 255, 0.92)'
+        ctx.fillStyle = dotColor
         ctx.fill()
         ctx.restore()
       }
@@ -197,13 +200,12 @@ export function ParticleBackground() {
     <div
       ref={containerRef}
       aria-hidden="true"
-      className="absolute inset-0 pointer-events-none overflow-hidden"
+      className="absolute inset-0 pointer-events-none overflow-hidden bg-background transition-colors"
       style={{
         zIndex: 0,
-        backgroundColor: '#06080d',
         backgroundImage: `
-          linear-gradient(to right, rgba(255, 255, 255, 0.055) 1px, transparent 1px),
-          linear-gradient(to bottom, rgba(255, 255, 255, 0.055) 1px, transparent 1px)
+          linear-gradient(to right, var(--border) 1px, transparent 1px),
+          linear-gradient(to bottom, var(--border) 1px, transparent 1px)
         `,
         backgroundSize: '65px 65px',
       }}

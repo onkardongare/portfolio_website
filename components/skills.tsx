@@ -42,16 +42,16 @@ export function Skills() {
   ]
 
   return (
-    <section id="skills" className="relative z-10 py-8 sm:py-10 px-4 bg-[#06080d]">
+    <section id="skills" className="relative z-10 py-8 sm:py-10 px-4 bg-background transition-colors">
       <div className="max-w-4xl mx-auto space-y-6 sm:space-y-8">
         {/* Section Header */}
         <div className="space-y-3">
-          <h2 className="text-3xl sm:text-4xl font-bold tracking-tight">Skills & Expertise</h2>
+          <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-foreground">Skills & Expertise</h2>
           <div className="w-12 h-1 bg-primary rounded-full"></div>
         </div>
 
         {/* 1. TECHNICAL SKILLS SECTION (Unified in one section, clean badges, no icons) */}
-        <div className="border border-border/80 rounded-xl p-5 sm:p-6 bg-muted/20 space-y-3 shadow-sm">
+        <div className="border border-border/80 rounded-xl p-5 sm:p-6 bg-card dark:bg-muted/20 space-y-3 shadow-sm transition-colors">
           <div className="space-y-1">
             <h3 className="text-xl sm:text-2xl font-bold tracking-tight text-foreground">
               Technical Skills
@@ -74,7 +74,7 @@ export function Skills() {
         </div>
 
         {/* 2. LANGUAGES & INTERESTS SECTION (Same color as skills, clean badges, no extra stuff) */}
-        <div className="border border-border/80 rounded-xl p-5 sm:p-6 bg-muted/20 space-y-5 shadow-sm">
+        <div className="border border-border/80 rounded-xl p-5 sm:p-6 bg-card dark:bg-muted/20 space-y-5 shadow-sm transition-colors">
           <div className="space-y-1">
             <h3 className="text-xl sm:text-2xl font-bold tracking-tight text-foreground">
               Languages & Interests

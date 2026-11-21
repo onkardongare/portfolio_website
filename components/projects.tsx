@@ -42,15 +42,26 @@ const projects: Project[] = [
       live: 'https://play.google.com/store/apps/details?id=com.anonymous.myfashionapp',
       liveLabel: 'Google Play',
     },
-  }
+  },
+  {
+    title: 'Viksit Bharat Youth Impact Platform',
+    description:
+      'A digital initiative designed to empower youth participation in India’s development agenda. Enables young citizens to track national development goals, participate in local problem-solving, and collaborate with authorities. Features contribution tracking, AI-assisted idea evaluation, district-level progress dashboards, and a community-driven feedback system.',
+    tags: ['Next.js', 'Node.js', 'Fastify', 'Vercel', 'MongoDB', 'Mongoose'],
+    links: {
+      github: 'https://github.com/onkardongare/great_india',
+      live: 'https://great-india-w7wr.vercel.app/en',
+      liveLabel: 'Live Demo',
+    },
+  },
 ]
 
 export function Projects() {
   return (
-    <section id="projects" className="relative z-10 py-8 sm:py-10 px-4 bg-[#06080d]">
+    <section id="projects" className="relative z-10 py-8 sm:py-10 px-4 bg-background transition-colors">
       <div className="max-w-4xl mx-auto space-y-6 sm:space-y-8">
         <div className="space-y-3">
-          <h2 className="text-3xl sm:text-4xl font-bold tracking-tight">Projects</h2>
+          <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-foreground">Featured Projects</h2>
           <div className="w-12 h-1 bg-primary rounded-full"></div>
         </div>
 
@@ -59,10 +70,10 @@ export function Projects() {
           {projects.map((project, index) => (
             <div
               key={index}
-              className="group border border-border/80 rounded-xl p-6 sm:p-8 hover:border-primary transition-all space-y-5 bg-muted/20 hover:bg-muted/40 shadow-sm"
+              className="group border border-border/80 rounded-xl p-6 sm:p-8 hover:border-primary transition-all space-y-5 bg-card dark:bg-muted/20 hover:shadow-md shadow-sm"
             >
               <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-4">
-                <h3 className="text-2xl font-bold group-hover:text-primary transition-colors">
+                <h3 className="text-2xl font-bold text-foreground group-hover:text-primary transition-colors">
                   {project.title}
                 </h3>
                 <div className="flex items-center gap-3 shrink-0">
@@ -71,7 +82,7 @@ export function Projects() {
                       href={project.links.github}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1.5 text-sm text-foreground/90 hover:text-white transition-all px-3 py-1.5 rounded-lg border border-border/80 bg-neutral-900/80 hover:border-primary"
+                      className="inline-flex items-center gap-1.5 text-sm text-foreground hover:text-primary transition-all px-3.5 py-1.5 rounded-lg border border-border bg-muted/60 hover:bg-muted hover:border-primary shadow-sm"
                     >
                       <GithubIcon size={16} />
                       Code
@@ -95,7 +106,7 @@ export function Projects() {
                 {project.description}
               </p>
 
-              <div className="flex flex-wrap gap-2 pt-2">
+              <div className="flex flex-wrap gap-2 pt-2 border-t border-border/40">
                 {project.tags.map((tag) => (
                   <span
                     key={tag}

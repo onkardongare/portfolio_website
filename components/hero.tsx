@@ -6,7 +6,7 @@ import { ParticleBackground } from '@/components/particle-background'
 
 export function Hero() {
   return (
-    <section className="relative min-h-screen flex items-center justify-center pt-20 px-4 overflow-hidden">
+    <section className="relative min-h-screen flex items-center justify-center pt-20 px-4 overflow-hidden bg-background text-foreground transition-colors">
       {/* Connected dots particle background - confined to Hero area */}
       <ParticleBackground />
 
@@ -44,7 +44,7 @@ export function Hero() {
           </a>
           <a 
             href="#contact"
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-lg border border-border/80 bg-neutral-900/60 hover:bg-neutral-800 text-foreground transition font-medium"
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-lg border border-border/80 bg-muted/40 hover:bg-muted text-foreground transition font-medium"
           >
             Get in Touch
           </a>
@@ -56,7 +56,7 @@ export function Hero() {
             href="https://github.com/onkardongare" 
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center justify-center p-3 rounded-xl border border-white/15 bg-neutral-900/80 text-white hover:text-primary hover:border-primary hover:scale-110 transition-all shadow-md"
+            className="flex items-center justify-center p-3 rounded-xl border border-border/80 bg-card text-foreground hover:text-primary hover:border-primary hover:scale-110 transition-all shadow-md"
             aria-label="GitHub"
           >
             <Github size={22} className="stroke-[2.2]" />
@@ -65,14 +65,14 @@ export function Hero() {
             href="https://linkedin.com/in/onkardongare" 
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center justify-center p-3 rounded-xl border border-white/15 bg-neutral-900/80 text-white hover:text-primary hover:border-primary hover:scale-110 transition-all shadow-md"
+            className="flex items-center justify-center p-3 rounded-xl border border-border/80 bg-card text-foreground hover:text-primary hover:border-primary hover:scale-110 transition-all shadow-md"
             aria-label="LinkedIn"
           >
             <Linkedin size={22} className="stroke-[2.2]" />
           </a>
           <a 
             href="mailto:dongareonkar2@gmail.com" 
-            className="flex items-center justify-center p-3 rounded-xl border border-white/15 bg-neutral-900/80 text-white hover:text-primary hover:border-primary hover:scale-110 transition-all shadow-md"
+            className="flex items-center justify-center p-3 rounded-xl border border-border/80 bg-card text-foreground hover:text-primary hover:border-primary hover:scale-110 transition-all shadow-md"
             aria-label="Email"
           >
             <Mail size={22} className="stroke-[2.2]" />
@@ -81,7 +81,7 @@ export function Hero() {
             href="https://x.com/dongareonkar_2" 
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center justify-center p-3 rounded-xl border border-white/15 bg-neutral-900/80 text-white hover:text-primary hover:border-primary hover:scale-110 transition-all shadow-md"
+            className="flex items-center justify-center p-3 rounded-xl border border-border/80 bg-card text-foreground hover:text-primary hover:border-primary hover:scale-110 transition-all shadow-md"
             aria-label="Twitter"
           >
             <Twitter size={22} className="stroke-[2.2]" />
@@ -91,7 +91,7 @@ export function Hero() {
 
       {/* Subtle bottom transition fade placed only at the bottom edge */}
       <div
-        className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-[#06080d] to-transparent pointer-events-none z-0"
+        className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-background to-transparent pointer-events-none z-0 transition-colors"
         aria-hidden="true"
       />
     </section>
