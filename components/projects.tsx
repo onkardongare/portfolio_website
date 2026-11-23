@@ -42,18 +42,7 @@ const projects: Project[] = [
       live: 'https://play.google.com/store/apps/details?id=com.anonymous.myfashionapp',
       liveLabel: 'Google Play',
     },
-  },
-  {
-    title: 'Viksit Bharat Youth Impact Platform',
-    description:
-      'A digital initiative designed to empower youth participation in India’s development agenda. Enables young citizens to track national development goals, participate in local problem-solving, and collaborate with authorities. Features contribution tracking, AI-assisted idea evaluation, district-level progress dashboards, and a community-driven feedback system.',
-    tags: ['Next.js', 'Node.js', 'Fastify', 'Vercel', 'MongoDB', 'Mongoose'],
-    links: {
-      github: 'https://github.com/onkardongare/great_india',
-      live: 'https://great-india-w7wr.vercel.app/en',
-      liveLabel: 'Live Demo',
-    },
-  },
+  }
 ]
 
 export function Projects() {
